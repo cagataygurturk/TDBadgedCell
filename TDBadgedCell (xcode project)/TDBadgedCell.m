@@ -150,21 +150,6 @@
 	
 }
 
-- (void) dealloc
-{
-	__parent = nil;
-	
-#if !__has_feature(objc_arc)
-	
-	[__badgeString release];
-	[__badgeColor release];
-	[__badgeTextColor release];
-	[__badgeColorHighlighted release];
-	
-	[super dealloc];
-#endif
-}
-
 @end
 
 
@@ -341,20 +326,6 @@
 		[self setNeedsDisplay];
 	}
 }
-
-#if !__has_feature(objc_arc)
-- (void)dealloc
-{
-	[__badge release];
-	[badgeColor release];
-	[badgeTextColor release];
-	[__badgeString release];
-	[badgeColorHighlighted release];
-    [resizeableLabels release];
-	
-	[super dealloc];
-}
-#endif
 
 
 @end
